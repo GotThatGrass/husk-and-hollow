@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0spt1gqqscds"]
+
+[ext_resource type="Script" uid="uid://c5b5r6pqns6g0" path="res://scripts/well.gd" id="1_dgxn0"]
+[ext_resource type="Texture2D" uid="uid://bevo861mrnijj" path="res://assets/sprites/well.png" id="2_8pmt1"]
+[ext_resource type="PackedScene" uid="uid://d1vbe3emy2c85" path="res://interaction_components/interactable.tscn" id="2_dgxn0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dgxn0"]
+radius = 17.5
+height = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rgtmi"]
+radius = 30.0
+
+[node name="Well" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_dgxn0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8pmt1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 17.5)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_dgxn0")
+
+[node name="Interactable" parent="." instance=ExtResource("2_dgxn0")]
+interact_name = "Collect Water"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, 27)
+shape = SubResource("CircleShape2D_rgtmi")
