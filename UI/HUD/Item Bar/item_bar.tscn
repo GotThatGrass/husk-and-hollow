@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://13j0rqbe6b7q"]
+
+[ext_resource type="Script" uid="uid://o2it3xx0tyu0" path="res://UI/HUD/Item Bar/item_bar_ui.gd" id="1_6kat5"]
+[ext_resource type="PackedScene" uid="uid://bmqouc7i1whwj" path="res://UI/HUD/Item Bar/ItemBarSlot/item_bar_slot.tscn" id="2_7bw3w"]
+
+[node name="ItemBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6kat5")
+
+[node name="ItemBarSlot" parent="." instance=ExtResource("2_7bw3w")]
+layout_mode = 1
+
+[node name="ItemBarSlot2" parent="." instance=ExtResource("2_7bw3w")]
+layout_mode = 1
+anchor_left = 0.020833334
+anchor_right = 0.041666668

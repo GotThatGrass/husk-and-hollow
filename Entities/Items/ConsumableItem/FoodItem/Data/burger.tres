@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FoodItem" load_steps=3 format=3 uid="uid://dx4x3bucqiq4i"]
+
+[ext_resource type="Script" uid="uid://72qhyvpvcuer" path="res://Entities/Items/ConsumableItem/FoodItem/food_item.gd" id="1_3ah3o"]
+[ext_resource type="Texture2D" uid="uid://dgep7iqt3sck1" path="res://Entities/Items/ConsumableItem/FoodItem/Art/burger.png" id="2_6mnyn"]
+
+[resource]
+script = ExtResource("1_3ah3o")
+nutrition = 20
+uses = 1
+name = "burger"
+texture = ExtResource("2_6mnyn")
+stackable = true
+max_stack = 5
+metadata/_custom_type_script = "uid://72qhyvpvcuer"

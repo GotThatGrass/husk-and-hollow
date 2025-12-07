@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemBar" load_steps=6 format=3 uid="uid://b3iqaasru1q5o"]
+
+[ext_resource type="Script" uid="uid://gw3wy6mrjnxg" path="res://Entities/Player/Item Bar/Item Bar Slot/item_bar_slot.gd" id="1_ob1hf"]
+[ext_resource type="Resource" uid="uid://dx4x3bucqiq4i" path="res://Entities/Items/ConsumableItem/FoodItem/Data/burger.tres" id="2_o8dy2"]
+[ext_resource type="Script" uid="uid://ckfeto02dxcs5" path="res://Entities/Player/Item Bar/item_bar.gd" id="3_a3m6d"]
+
+[sub_resource type="Resource" id="Resource_7a1se"]
+script = ExtResource("1_ob1hf")
+item = ExtResource("2_o8dy2")
+stack_count = 5
+metadata/_custom_type_script = "uid://gw3wy6mrjnxg"
+
+[sub_resource type="Resource" id="Resource_lub02"]
+script = ExtResource("1_ob1hf")
+item = ExtResource("2_o8dy2")
+stack_count = 5
+metadata/_custom_type_script = "uid://gw3wy6mrjnxg"
+
+[resource]
+script = ExtResource("3_a3m6d")
+item_slots = Array[ExtResource("1_ob1hf")]([SubResource("Resource_7a1se"), SubResource("Resource_lub02")])
+metadata/_custom_type_script = "uid://ckfeto02dxcs5"
