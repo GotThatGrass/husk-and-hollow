@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://13j0rqbe6b7q"]
+
+[ext_resource type="Script" uid="uid://o2it3xx0tyu0" path="res://UI/HUD/Item Bar/item_bar_ui.gd" id="1_6kat5"]
+[ext_resource type="PackedScene" uid="uid://bmqouc7i1whwj" path="res://UI/HUD/Item Bar/ItemBarSlot/item_bar_slot.tscn" id="2_7bw3w"]
+[ext_resource type="Script" uid="uid://gw3wy6mrjnxg" path="res://Entities/Player/Item Bar/Item Bar Slot/item_bar_slot.gd" id="2_kocp7"]
+[ext_resource type="Script" uid="uid://ckfeto02dxcs5" path="res://Entities/Player/Item Bar/item_bar.gd" id="3_rdwl3"]
+
+[sub_resource type="Resource" id="Resource_moajp"]
+script = ExtResource("3_rdwl3")
+metadata/_custom_type_script = "uid://ckfeto02dxcs5"
+
+[node name="ItemBarUI" type="CanvasLayer"]
+script = ExtResource("1_6kat5")
+item_bar = SubResource("Resource_moajp")
+slot_scene = ExtResource("2_7bw3w")
+
+[node name="Wrapper" type="Control" parent="."]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -26.0
+offset_right = 20.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Slots" type="HBoxContainer" parent="Wrapper"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="ItemBarSlot2" parent="Wrapper/Slots" instance=ExtResource("2_7bw3w")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemBarSlot" parent="Wrapper/Slots" instance=ExtResource("2_7bw3w")]
+layout_mode = 2
+size_flags_horizontal = 3

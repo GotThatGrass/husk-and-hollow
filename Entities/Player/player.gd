@@ -1,28 +1,35 @@
 extends CharacterBody2D
 
-@export var item_bar: ItemBar
-
 @export var speed = 200
-var screen_size
+@export var item_bar: ItemBar  # assign a Resource in Inspector
+@onready var inventory_ui = $ItemBarUI  # the CanvasLayer node
+
+var screen_size: Vector2
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	
+	if inventory_ui:
+		inventory_ui.item_bar = item_bar
+		inventory_ui.populate_item_bar()  # now the slots show
 
-func _process(delta: float) -> void:
-	var velocity = Vector2.ZERO
+func _physics_process(delta: float) -> void:
+	var input_vector = Vector2.ZERO
+
 	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
+		input_vector.x += 1
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
+		input_vector.x -= 1
 	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
+		input_vector.y += 1
 	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
-	
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-	
-	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+		input_vector.y -= 1
+
+	if input_vector.length() > 0:
+		input_vector = input_vector.normalized() * speed
+
+	velocity = input_vector
 	move_and_slide()
+
+	# Clamp inside screen
+	position.x = clamp(position.x, 0, screen_size.x)
+	position.y = clamp(position.y, 0, screen_size.y)

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cs4h0d5yevhb0" path="res://Entities/Player/player.gd" id="1_3uyv8"]
 [ext_resource type="Texture2D" uid="uid://cl14itqo6kwu6" path="res://Entities/Player/Art/labubu.png" id="1_mv1ah"]
 [ext_resource type="Resource" uid="uid://b3iqaasru1q5o" path="res://Entities/Player/Data/player_item_bar.tres" id="2_lu8i8"]
-[ext_resource type="PackedScene" uid="uid://13j0rqbe6b7q" path="res://UI/HUD/Item Bar/item_bar.tscn" id="4_tekja"]
+[ext_resource type="PackedScene" uid="uid://13j0rqbe6b7q" path="res://UI/HUD/Item Bar/item_bar_ui.tscn" id="4_tekja"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3uyv8"]
 radius = 6.0
@@ -23,6 +23,5 @@ position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_3uyv8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
 
-[node name="ItemBar" parent="." instance=ExtResource("4_tekja")]
+[node name="ItemBarUI" parent="." instance=ExtResource("4_tekja")]
