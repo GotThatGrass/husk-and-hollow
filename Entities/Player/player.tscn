@@ -1,9 +1,77 @@
-[gd_scene load_steps=6 format=3 uid="uid://b05abmh4ygg65"]
+[gd_scene load_steps=11 format=3 uid="uid://b05abmh4ygg65"]
 
 [ext_resource type="Script" uid="uid://cs4h0d5yevhb0" path="res://Entities/Player/player.gd" id="1_3uyv8"]
 [ext_resource type="Texture2D" uid="uid://cl14itqo6kwu6" path="res://Entities/Player/Art/labubu.png" id="1_mv1ah"]
 [ext_resource type="Resource" uid="uid://b3iqaasru1q5o" path="res://Entities/Player/Data/player_item_bar.tres" id="2_lu8i8"]
 [ext_resource type="PackedScene" uid="uid://13j0rqbe6b7q" path="res://UI/HUD/Item Bar/item_bar_ui.tscn" id="4_tekja"]
+
+[sub_resource type="Animation" id="Animation_4wf4l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_01a4e"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_tekja"]
+resource_name = "walk_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_5c2io"]
+resource_name = "walk_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5c2io"]
+_data = {
+&"RESET": SubResource("Animation_4wf4l"),
+&"idle": SubResource("Animation_01a4e"),
+&"walk_down": SubResource("Animation_tekja"),
+&"walk_up": SubResource("Animation_5c2io")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3uyv8"]
 radius = 6.0
@@ -14,9 +82,14 @@ script = ExtResource("1_3uyv8")
 item_bar = ExtResource("2_lu8i8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
 texture = ExtResource("1_mv1ah")
+hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5c2io")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
